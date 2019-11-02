@@ -14,24 +14,24 @@ class RecipeController {
     }
 
     // Aggregate root
-    @GetMapping("/rezepte")
+    @GetMapping("/recipes")
     List<Recipe> all() {
         return repository.findAll();
     }
 
-    @PostMapping("/rezepte")
+    @PostMapping("/recipes")
     Recipe newRecipe(@RequestBody Recipe newRecipe) {
         return repository.save(newRecipe);
     }
 
     // Single item
-    @GetMapping("/rezepte/{id}")
+    @GetMapping("/recipes/{id}")
     Recipe one(@PathVariable Long id) {
         return repository.findById(id)
                 .orElseThrow(() -> new RecipeNotFoundException(id));
     }
 
-    @PutMapping("/rezepte/{id}")
+    @PutMapping("/recipes/{id}")
     Recipe replaceRecipe(@RequestBody Recipe newRecipe, @PathVariable Long id) {
         return repository.findById(id)
                 .map(recipe -> {
@@ -46,7 +46,7 @@ class RecipeController {
                 });
     }
 
-    @DeleteMapping("/rezepte/{id}")
+    @DeleteMapping("/recipes/{id}")
     void deleteRecipe(@PathVariable Long id) {
         repository.deleteById(id);
     }
