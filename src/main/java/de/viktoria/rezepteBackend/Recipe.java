@@ -13,13 +13,13 @@ import javax.persistence.Id;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-class Rezept {
+class Recipe {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String title;
-    private String rezept;
-    private String schwierigkeitsgrad;
+    private String recipe;
+    private String level;
 
 }
